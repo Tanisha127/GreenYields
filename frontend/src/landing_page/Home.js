@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ImpactContext } from "../ImpactContext";
+import { Link } from "react-router-dom";
 
 function Home() {
   const { impactData } = useContext(ImpactContext);
@@ -16,8 +17,8 @@ function Home() {
               verified incentives.
             </p>
             <div className="cta">
-              <a className="btn" href="wizard">Get your farm plan</a>
-              <a className="btn alt" href="solutions">See solutions</a>
+              <Link className="btn" to="/wizard">Get your farm plan</Link>
+              <Link className="btn alt" to="/solutions">See solutions</Link>
             </div>
 
             <div className="mt16">
@@ -54,7 +55,7 @@ function Home() {
                 Simple field tubes and irrigation timing reduce continuous flooding — 
                 the main driver of paddy methane.
               </p>
-              <a href="solutions">Learn more →</a>
+              <Link to="/solutions">Learn more →</Link>
             </div>
             <div className="card">
               <h3>DSR — Direct seeding</h3>
@@ -62,7 +63,7 @@ function Home() {
                 Skip puddling and transplanting to reduce water and labor while lowering 
                 greenhouse gas intensity.
               </p>
-              <a href="solutions">Learn more →</a>
+              <Link to="/solutions">Learn more →</Link>
             </div>
             <div className="card">
               <h3>Straw Recycling</h3>
@@ -70,7 +71,7 @@ function Home() {
                 Turn residues into compost, fodder, or biogas instead of burning. Cleaner 
                 air and extra income.
               </p>
-              <a href="knowledge">Find buyers & methods →</a>
+              <Link to="/knowledge">Find buyers & methods →</Link>
             </div>
           </div>
         </section>
@@ -101,7 +102,7 @@ function Home() {
           <h3>Latest Farmer Stories</h3>
           <div id="stories-list" className="grid cols-3 mt16"></div>
           <div className="mt16">
-            <a className="btn" href="stories">See all stories</a>
+            <Link className="btn" to="/stories">See all stories</Link>
           </div>
         </section>
       </main>
