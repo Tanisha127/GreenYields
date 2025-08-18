@@ -34,7 +34,6 @@ root.render(
         <Route path="/partners" element={<Partners />} />
         <Route path="/carbon" element={<Carbon />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
