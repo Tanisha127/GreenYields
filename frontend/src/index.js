@@ -23,8 +23,8 @@ root.render(
   <ImpactProvider>  
     <BrowserRouter>
       <Navbar/>
+      <Route path="/home" element={<Home />} />
       <Routes>
-        <Route path="/home" element={<Home />} />
         <Route path="/problem" element={<Problem />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/wizard" element={<Wizard />} />
