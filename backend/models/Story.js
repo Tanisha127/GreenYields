@@ -1,15 +1,18 @@
 import mongoose from "mongoose";
 
-const storySchema = new mongoose.Schema({
-  title: String,
-  district: String,
-  practice:{ 
-    type: String, 
-    enum: ["AWD", "DSR", "Straw Recycling"], 
+const storySchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true, trim: true },
+    district: { type: String, required: true, trim: true },
+    practice: { 
+      type: String, 
+      enum: ["AWD", "DSR", "Straw Recycling"], 
+      required: true 
+    },
+    summary: { type: String, required: true, trim: true }
   },
-  summary:String,
-  createdAt: { type: Date, default: Date.now },
-});
+  { timestamps: true }
+);
 
 const Story = mongoose.model("Story", storySchema);
 
