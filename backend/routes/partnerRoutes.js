@@ -6,12 +6,12 @@ const router = express.Router();
 // Add new partner
 router.post("/", async (req, res) => {
   try {
-    const { name, organization, website } = req.body;
-    const newPartner = new Partner({ name, organization, website });
+    const { name, organization, email, phone, message } = req.body;
+    const newPartner = new Partner({ name, organization, email, phone, message });
     await newPartner.save();
     res.status(201).json(newPartner);
   } catch (err) {
-    res.status(500).json({ error: "Failed to save partner" });
+    res.status(500).json({ error: err.message });
   }
 });
 

@@ -6,12 +6,12 @@ const router = express.Router();
 // Add new contact
 router.post("/", async (req, res) => {
   try {
-    const { name, email, message } = req.body;
-    const newContact = new Contact({ name, email, message });
+    const { name, email, subject, message } = req.body;
+    const newContact = new Contact({ name, email, subject, message });
     await newContact.save();
     res.status(201).json(newContact);
   } catch (err) {
-    res.status(500).json({ error: "Failed to save contact" });
+    res.status(500).json({ error: err.message });
   }
 });
 

@@ -24,6 +24,7 @@ root.render(
     <BrowserRouter>
       <Navbar/>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/problem" element={<Problem />} />
         <Route path="/solutions" element={<Solutions />} />

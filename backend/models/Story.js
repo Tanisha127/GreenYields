@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const storySchema = new mongoose.Schema({
   title: String,
-  content: String,
+  district: String,
+  practice:{ 
+    type: String, 
+    enum: ["AWD", "DSR", "Straw Recycling"], 
+  },
+  summary:String,
   createdAt: { type: Date, default: Date.now },
 });
 
