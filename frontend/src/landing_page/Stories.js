@@ -58,7 +58,7 @@ function Stories() {
 
   return (
     <main className="container">
-      <h2>Real farmers. Real results.</h2>
+      <h2>🌾 Real farmers. Real results.</h2>
 
       {/* Stories list */}
       <div id="stories-list" className="grid cols-3 mt16">
@@ -67,7 +67,7 @@ function Stories() {
         )}
         {stories.map((story, index) => (
           <div key={index} className="card">
-            <h4>{story.title}</h4>
+            <h3>{story.title}</h3>
             {story.district && (
               <p>
                 <strong>District:</strong> {story.district}
@@ -76,13 +76,17 @@ function Stories() {
             <p>
               <strong>Practice:</strong> {story.practice}
             </p>
-            <p>{story.summary}</p>
+            {story.summary && (
+              <p>
+                <strong>Summary:</strong> {story.summary}
+              </p>
+            )}
           </div>
         ))}
       </div>
 
       {/* Story form */}
-      <h3 className="mt24">Share your story</h3>
+      <h3 className="mt24">📢 Share your story</h3>
       <form id="story-form" className="card mt16" onSubmit={handleSubmit}>
         <label>Title</label>
         <input
