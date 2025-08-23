@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const API = "https://greenyields.onrender.com"; // your backend base URL
+const API = "https://greenyields.onrender.com"; // backend base URL
 
 function Stories() {
   const [stories, setStories] = useState([]);
@@ -36,7 +36,6 @@ function Stories() {
       });
 
       if (res.ok) {
-        // ✅ refetch updated list instead of appending manually
         await fetch(`${API}/api/stories`)
           .then((res) => res.json())
           .then((data) => setStories(data));
@@ -54,12 +53,11 @@ function Stories() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>📖 Farmer Stories</h2>
+    <div className="container">
+      <h2 className="mt24">📖 Farmer Stories</h2>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-        <div>
+      <form onSubmit={handleSubmit} id="story-form" className="card mt16">
           <label>Title</label>
           <input
             name="title"
@@ -67,9 +65,7 @@ function Stories() {
             onChange={handleChange}
             required
           />
-        </div>
 
-        <div>
           <label>District</label>
           <input
             name="district"
@@ -77,9 +73,7 @@ function Stories() {
             onChange={handleChange}
             required
           />
-        </div>
 
-        <div>
           <label>Practice</label>
           <select
             name="practice"
@@ -90,36 +84,30 @@ function Stories() {
             <option value="DSR">DSR</option>
             <option value="Straw Recycling">Straw Recycling</option>
           </select>
-        </div>
 
-        <div>
           <label>Summary</label>
           <textarea
             name="summary"
+            rows="4"
             value={formData.summary}
             onChange={handleChange}
             required
           />
-        </div>
 
-        <button type="submit">Submit</button>
+        <button className="btn" type="submit">Submit</button>
       </form>
 
-      <p>{status}</p>
+      <div  id="story-status" className="helper mt8">{status}</div>
 
       {/* Stories list */}
-      <div>
+      <div id="stories-list" className="grid cols-3 mt16">
         {stories.length === 0 ? (
-          <p>No stories yet.</p>
+          <p className="helper">No stories yet.</p>
         ) : (
           stories.map((story) => (
             <div
               key={story._id}
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                marginBottom: "10px",
-              }}
+              className="card"
             >
               <h3>{story.title}</h3>
               {story.district && (
